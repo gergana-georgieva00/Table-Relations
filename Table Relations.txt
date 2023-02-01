@@ -15,3 +15,13 @@ create table Persons
 	references Passports(PassportId) unique not null
 );
 
+insert into Passports
+values ('N34FG21B'),
+('K65LO4R7'),
+('ZE657QP2')
+
+insert into Persons
+values ('Reberto', 43300.00, 102),
+('Tom', 56100.00, 103),
+('Yana', 60200.00, 101)
+
