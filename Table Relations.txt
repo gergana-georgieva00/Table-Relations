@@ -37,6 +37,18 @@ create table Models
 	ModelID int primary key identity(101, 1),
 	[Name] varchar(30) not null,
 	ManufacturerID int 
-	foreign key references Manufacturers(ManufacturerID) unique not null
+	foreign key references Manufacturers(ManufacturerID) not null
 );
 
+insert into Manufacturers
+values ('BMW', 07-03-1916),
+('Tesla', 01-01-2003),
+('Lada', 01-05-1966)
+
+insert into Models
+values ('X1', 1),
+('i6', 1),
+('Model S', 2),
+('Model X', 2),
+('Model 3', 2),
+('Nova', 3)
