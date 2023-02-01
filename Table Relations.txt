@@ -1,0 +1,8 @@
+create database TableRelations
+
+create table Passports 
+(
+	PassportId int primary key identity(101, 1),
+	PassportNumber varchar(30)
+);
+
