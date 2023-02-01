@@ -189,3 +189,9 @@ create table Agenda
 	primary key(StudentID, SubjectID)
 );
 
+select m.MountainRange, p.PeakName, p.Elevation
+from [Peaks] as p
+join [Mountains] as m
+on p.MountainId = m.Id
+where m.MountainRange = 'Rila'
+order by p.Elevation desc	
