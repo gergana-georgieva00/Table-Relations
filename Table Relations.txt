@@ -25,3 +25,18 @@ values ('Reberto', 43300.00, 102),
 ('Tom', 56100.00, 103),
 ('Yana', 60200.00, 101)
 
+create table Manufacturers
+(
+	ManufacturerID int primary key identity(1, 1),
+	[Name] varchar(30) not null,
+	EstablishedOn datetime not null
+);
+
+create table Models
+(
+	ModelID int primary key identity(101, 1),
+	[Name] varchar(30) not null,
+	ManufacturerID int 
+	foreign key references Manufacturers(ManufacturerID) unique not null
+);
+
