@@ -150,3 +150,42 @@ create table OrderItems
 	foreign key(ItemID) references Items(ItemID)
 );
 
+create table Subjects
+(
+	SubjectID int primary key not null,
+	SubjectName varchar(50) not null
+);
+
+create table Majors
+(
+	MajorID int primary key not null,
+	[Name] varchar(50) not null
+);
+
+create table Students
+(
+	StudentID int primary key not null,
+	StudentNumber varchar(50) not null,
+	StudentName varchar(50)  not null,
+	MajorID int
+	foreign key references Majors(MajorID)
+);
+
+create table Payments
+(
+	PaymentID int primary key not null,
+	PaymentDate date not null,
+	PaymentAmount money,
+	StudentID int 
+	foreign key references Students(StudentID)
+);
+
+create table Agenda
+(
+	StudentID int 
+	foreign key references Students(StudentID),
+	SubjectID int
+	foreign key references Subjects(SubjectID),
+	primary key(StudentID, SubjectID)
+);
+
