@@ -105,3 +105,48 @@ values ('John', null),
 ('Mark', 101),
 ('Greta', 101)
 
+create table Cities 
+(
+	CityID int primary key identity(1, 1),
+	[Name] varchar(50) not null
+);
+
+create table ItemTypes
+(
+	ItemTypeID int primary key identity(1, 1),
+	[Name] varchar(50) not null
+);
+
+create table Customers
+(
+	CustomerID int primary key identity(1, 1),
+	[Name] varchar(50) not null,
+	Birthday datetime not null,
+	CityID int foreign key 
+	references Cities(CityID) not null
+);
+
+create table Items
+(
+	ItemID int primary key identity(1, 1),
+	[Name] varchar(50) not null,
+	ItemTypeID int
+	foreign key references ItemTypes(ItemTypeID) not null
+);
+
+create table Orders
+(
+	OrderID int primary key identity(1, 1),
+	CustomerID int
+	foreign key references Customers(CustomerID) not null
+);
+
+create table OrderItems
+(
+	OrderID int,
+	ItemID int,
+	primary key(OrderID, ItemID),
+	foreign key(OrderID) references Orders(OrderID),
+	foreign key(ItemID) references Items(ItemID)
+);
+
