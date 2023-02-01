@@ -6,3 +6,12 @@ create table Passports
 	PassportNumber varchar(30)
 );
 
+create table Persons
+(
+	PersonId int primary key identity(1, 1),
+	FirstName varchar(30) not null,
+	Salary decimal(8, 2) not null,
+	PassportId int foreign key 
+	references Passports(PassportId) unique not null
+);
+
