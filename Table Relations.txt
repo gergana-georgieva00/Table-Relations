@@ -74,3 +74,18 @@ create table StudentsExams
 	foreign key(ExamID) references Exams(ExamID)
 );
 
+insert into Students
+values ('Mila'),
+('Toni'),
+('Ron')
+
+insert into Exams
+values ('SpringMVC'),
+('Neo4j'),
+('Oracle 11g')
+
+insert into StudentsExams
+values (1, 101),
+(1, 102),
+(2, 101)
+
