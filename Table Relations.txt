@@ -52,3 +52,25 @@ values ('X1', 1),
 ('Model X', 2),
 ('Model 3', 2),
 ('Nova', 3)
+
+create table Students
+(
+	StudentID int primary key identity(1, 1),
+	[Name] varchar(30) not null
+);
+
+create table Exams
+(
+	ExamID int primary key identity(101, 1),
+	[Name] varchar(30) not null
+);
+
+create table StudentsExams
+(
+	StudentID int ,
+	ExamID int,
+	primary key (StudentID, ExamID),
+	foreign key(StudentID) references Students(StudentID),
+	foreign key(ExamID) references Exams(ExamID)
+);
+
